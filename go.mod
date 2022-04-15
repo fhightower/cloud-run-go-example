@@ -1,4 +1,4 @@
-module github.com/GoogleCloudPlatform/golang-samples/run/helloworld
+module github.com/fhightower/cloud-run-go-example
 
 go 1.13
 
