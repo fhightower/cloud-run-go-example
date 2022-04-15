@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  _base:
+    &base
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./:/go/src/code/
+
+  dev:
+    <<: *base
+    command: bash
+
+  serve:
+    <<: *base
+    command: go run main.go
+    ports:
+      - "8080:8080"
