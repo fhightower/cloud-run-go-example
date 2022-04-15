@@ -5,6 +5,7 @@ import (
         "fmt"
         "log"
         "net/http"
+	"golang.org/x/net/html"
         "os"
 )
 
@@ -29,7 +30,7 @@ func main() {
 func handler(w http.ResponseWriter, r *http.Request) {
         name := os.Getenv("NAME")
         if name == "" {
-                name = "World"
+                name = html.EscapeString(r.URL.Path)
         }
         fmt.Fprintf(w, "Hello %s!\n", name)
 }
