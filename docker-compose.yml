@@ -9,10 +9,6 @@ services:
     volumes:
       - ./:/go/src/code/
 
-  dev:
-    <<: *base
-    command: bash
-
   serve:
     <<: *base
     command: go run main.go
